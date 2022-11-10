@@ -5,7 +5,7 @@ import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
-import { CognitoUserPool } from 'amazon-cognito-identity-js';
+import { CognitoUserPool, CognitoUserAttribute } from 'amazon-cognito-identity-js';
 
 import { User } from './user.model';
 
@@ -29,10 +29,12 @@ export class AuthService {
       email: email,
       password: password
     };
+    const attrList: CognitoUserAttribute[] = [];
     const emailAttribute = {
       Name: 'email',
       Value: user.email
     };
+    attrList.push(new CognitoUserAttribute(emailAttribute));
     return;
   }
   confirmUser(username: string, code: string) {
