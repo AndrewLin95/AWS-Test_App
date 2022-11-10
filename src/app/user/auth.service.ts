@@ -5,7 +5,16 @@ import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
+import { CognitoUserPool } from 'amazon-cognito-identity-js';
+
 import { User } from './user.model';
+
+const POOL_DATA = {
+  UserPoolId: 'us-east-2_FGtWshNFZ',
+  ClientId: '93tnketrlc6gbage4v9d6rnoi', 
+}
+
+const userPool = new CognitoUserPool(POOL_DATA);
 
 @Injectable()
 export class AuthService {
