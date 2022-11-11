@@ -17,7 +17,6 @@ export class CompareService {
   constructor(private http: Http,
               private authService: AuthService) {
   }
-
   onStoreData(data: CompareData) {
     this.dataLoadFailed.next(false);
     this.dataIsLoading.next(true);
